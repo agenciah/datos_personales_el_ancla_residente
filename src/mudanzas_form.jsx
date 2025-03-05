@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { TextField, Button, Container, FormControl, Snackbar, Alert } from "@mui/material";
 import { jsPDF } from "jspdf";
-import background from "./assets/alojamiento_temporal_punta_azul.jpg";
+import background from "./assets/alojamientos_temporales_bahia.jpg";
 import CropImage from "./componentes/crop/cropimage";
-import page2Background from "./assets/avisos_punta_azul.jpg"
+import page2Background from "./assets/avisos_bahia.jpg"
 
 function MudanzasForm() {
   const [formData, setFormData] = useState({
@@ -74,13 +74,13 @@ function MudanzasForm() {
       pdf.addImage(backgroundImage, "JPEG", 0, 0, 446, 631);
     }
 
-    pdf.text(formData.nombrePropietario, 205, 200);
-    pdf.text(formData.nombrehuesped, 205, 260);
-    pdf.text(formData.numeroPersonas, 205, 330);
-    pdf.text(formData.marcaVehiculo, 205, 510);
-    pdf.text(formData.tarjetaCirculacion, 205, 570);
-    pdf.text(formData.departamento, 205, 450);
-    pdf.text(formData.nombreNinos, 205, 380);
+    pdf.text(formData.nombrePropietario, 70, 170);
+    pdf.text(formData.nombrehuesped, 70, 230);
+    pdf.text(formData.numeroPersonas, 70, 295);
+    pdf.text(formData.marcaVehiculo, 70, 480);
+    pdf.text(formData.tarjetaCirculacion, 70, 540);
+    pdf.text(formData.departamento, 70, 420);
+    pdf.text(formData.nombreNinos, 70, 350);
 
     croppedImages.forEach((img) => {
       pdf.addPage();

@@ -1,7 +1,7 @@
 import Mudanzas_form from './mudanzas_form';
 import { Container, Typography, Box } from '@mui/material';
 import residenza_logo from "./assets/Residenza_logo.jpg";
-import logo_xiris from "./assets/punta_azul_logo.jpeg"
+// import logo_xiris from "./assets/punta_azul_logo.jpeg"
 
 function App() {
   return (
@@ -20,11 +20,11 @@ function App() {
           alt="Residenza Logo" 
           style={{ maxWidth: "80px", height: "auto" }} 
         />
-        <img 
+        {/* <img 
           src={logo_xiris} 
           alt="Xiris Logo" 
           style={{ maxWidth: "80px", height: "auto" }} 
-        />
+        /> */}
       </Box>
 
       {/* Contenido principal */}
@@ -39,7 +39,7 @@ function App() {
             mb: 2 // Espacio entre los logos y el título
           }}
         >
-          Formulario para alojamientos temporales, Condominio Punta Azul.
+          Formulario para alojamientos temporales, Condominio Bahía.
         </Typography>
         <Typography sx={{ color: '#262161', mt: 2 }}>
           Por favor llena los campos, ingresa las identificaciones de los mayores de edad, junto con una imagen de la tarjeta de circulación, la tarjeta de circulación debe coincidir con las placas. Descarga el pdf con el botón al final de la página y compártela al administrador del condominio.
