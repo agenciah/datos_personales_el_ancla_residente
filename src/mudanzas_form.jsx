@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 import { TextField, Button, Container, FormControl, Snackbar, Alert } from "@mui/material";
 import { jsPDF } from "jspdf";
-import background from "./assets/alojamientos_temporales_bahia.jpg";
+import background from "./assets/bahia_nuevo_propietario.jpg";
 import CropImage from "./componentes/crop/cropimage";
 import page2Background from "./assets/avisos_bahia.jpg"
 
 function MudanzasForm() {
   const [formData, setFormData] = useState({
     nombrePropietario: "",
-    nombrehuesped: "",
-    numeroPersonas: "",
+    telefono: "",
+    email: "",
     marcaVehiculo: "",
     tarjetaCirculacion: "",
     departamento: "",
-    nombreNinos: "",
-    notas: "",
+    mascotas: "",
+    usoDepto: "",
   });
 
   const [imageSrc, setImageSrc] = useState(null);
@@ -75,12 +75,19 @@ function MudanzasForm() {
     }
 
     pdf.text(formData.nombrePropietario, 70, 170);
-    pdf.text(formData.nombrehuesped, 70, 230);
-    pdf.text(formData.numeroPersonas, 70, 295);
+    pdf.text(formData.telefono, 70, 230);
+    pdf.text(formData.email, 70, 295);
     pdf.text(formData.marcaVehiculo, 70, 480);
     pdf.text(formData.tarjetaCirculacion, 70, 540);
     pdf.text(formData.departamento, 70, 420);
-    pdf.text(formData.nombreNinos, 70, 350);
+    pdf.text(formData.mascotas, 70, 350);
+    if (formData.usoDepto === "alojamientos_temporales") {
+      pdf.text("X", 377, 581); // Coordenadas donde irá la "X" en la casilla de "Alojamientos Temporales"
+    }
+    
+    if (formData.usoDepto === "habitar") {
+      pdf.text("X", 377, 564); // Coordenadas donde irá la "X" en la casilla de "Habitar"
+    }
 
     croppedImages.forEach((img) => {
       pdf.addPage();
@@ -88,19 +95,21 @@ function MudanzasForm() {
       pdf.addImage(img, "PNG", 50, 150, 295, 202);
     });
 
+
     pdf.save(`Autorizacion_${formData.nombreCompleto}.pdf`);
 
     //Limpiar los campos
     setFormData({
       nombrePropietario: "",
-      nombrehuesped: "",
+      telefono: "",
       nombreCompleto: "",
-      numeroPersonas: "",
+      email: "",
       marcaVehiculo: "",
       tarjetaCirculacion: "",
       departamento: "",
-      nombreNinos: "",
+      mascotas: "",
       notas: "",
+      usoDepto: "",
     });
 
     setCroppedImages([]); // Limpiar las imágenes cargadas
@@ -119,17 +128,17 @@ function MudanzasForm() {
         </FormControl>
         <FormControl fullWidth margin="normal">
           <TextField
-            label="Nombre del huesped"
-            name="nombrehuesped"
-            value={formData.nombrehuesped}
+            label="Telefono/s de contacto"
+            name="telefono"
+            value={formData.telefono}
             onChange={handleChange}
           />
         </FormControl>
         <FormControl fullWidth margin="normal">
           <TextField
-            label="Número de Personas que ingresan"
-            name="numeroPersonas"
-            value={formData.numeroPersonas}
+            label="Email/s de contacto"
+            name="email"
+            value={formData.email}
             onChange={handleChange}
           />
         </FormControl>
@@ -143,9 +152,9 @@ function MudanzasForm() {
         </FormControl>
         <FormControl fullWidth margin="normal">
           <TextField
-            label="Nombre de niños"
-            name="nombreNinos"
-            value={formData.nombreNinos}
+            label="Mascotas (nombre, raza, color)"
+            name="mascotas"
+            value={formData.mascotas}
             onChange={handleChange}
           />
         </FormControl>
@@ -165,6 +174,30 @@ function MudanzasForm() {
             onChange={handleChange}
           />
           </FormControl>
+          <FormControl component="fieldset" fullWidth margin="normal">
+            <label>Por favor especifique el uso que dará al Departamento:</label>
+            <div>
+              <input
+                type="checkbox"
+                name="usoDepto"
+                value="alojamientos_temporales"
+                checked={formData.usoDepto === "alojamientos_temporales"}
+                onChange={() => setFormData({ ...formData, usoDepto: "alojamientos_temporales" })}
+              />
+              <label>Alojamientos Temporales</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="usoDepto"
+                value="habitar"
+                checked={formData.usoDepto === "habitar"}
+                onChange={() => setFormData({ ...formData, usoDepto: "habitar" })}
+              />
+              <label>Habitar</label>
+            </div>
+          </FormControl>
+
         <input type="file" accept="image/*" onChange={handleImageUpload}/>
         {imageSrc && (
           <CropImage

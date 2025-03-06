@@ -39,10 +39,10 @@ function App() {
             mb: 2 // Espacio entre los logos y el título
           }}
         >
-          Formulario para alojamientos temporales, Condominio Bahía.
+          Formulario para nuevos propietarios, Condominio Bahía.
         </Typography>
         <Typography sx={{ color: '#262161', mt: 2 }}>
-          Por favor llena los campos, ingresa las identificaciones de los mayores de edad, junto con una imagen de la tarjeta de circulación, la tarjeta de circulación debe coincidir con las placas. Descarga el pdf con el botón al final de la página y compártela al administrador del condominio.
+          Por favor llena los campos y si cuentas con mascotas, agrega una imagen de tu/s mascota/s. Descarga el pdf con el botón al final de la página y compártela al administrador del condominio.
         </Typography>
       </header>
       <Mudanzas_form />
