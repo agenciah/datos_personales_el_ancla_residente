@@ -144,7 +144,7 @@ function MudanzasForm() {
         </FormControl>
         <FormControl fullWidth margin="normal">
           <TextField
-            label="Departamento"
+            label="Casa habitación"
             name="departamento"
             value={formData.departamento}
             onChange={handleChange}
