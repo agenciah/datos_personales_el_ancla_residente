@@ -144,7 +144,7 @@ function MudanzasForm() {
         </FormControl>
         <FormControl fullWidth margin="normal">
           <TextField
-            label="Casa habitación"
+            label="Dirección"
             name="departamento"
             value={formData.departamento}
             onChange={handleChange}
@@ -175,12 +175,12 @@ function MudanzasForm() {
           />
           </FormControl>
           <FormControl component="fieldset" fullWidth margin="normal">
-            <FormLabel sx={{ color: 'text.primary' }} >Por favor especifique el uso que dará a la propiedad:</FormLabel>
+            <FormLabel sx={{ color: 'text.primary' }} >Por favor especifique si es:</FormLabel>
             <div>
               <input
                 type="checkbox"
                 name="usoDepto"
-                value="alojamientos_temporales"
+                value="Inquilino"
                 checked={formData.usoDepto === "alojamientos_temporales"}
                 onChange={() => setFormData({ ...formData, usoDepto: "alojamientos_temporales" })}
               />
@@ -190,7 +190,7 @@ function MudanzasForm() {
               <input
                 type="checkbox"
                 name="usoDepto"
-                value="habitar"
+                value="Propietario"
                 checked={formData.usoDepto === "habitar"}
                 onChange={() => setFormData({ ...formData, usoDepto: "habitar" })}
               />
