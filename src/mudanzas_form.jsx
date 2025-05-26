@@ -180,21 +180,21 @@ function MudanzasForm() {
               <input
                 type="checkbox"
                 name="usoDepto"
-                value="Inquilino"
+                value="alojamientos_temporales"
                 checked={formData.usoDepto === "alojamientos_temporales"}
                 onChange={() => setFormData({ ...formData, usoDepto: "alojamientos_temporales" })}
               />
-              <FormLabel >Alojamientos Temporales</FormLabel>
+              <FormLabel >Propietario</FormLabel>
             </div>
             <div>
               <input
                 type="checkbox"
                 name="usoDepto"
-                value="Propietario"
+                value="habitar"
                 checked={formData.usoDepto === "habitar"}
                 onChange={() => setFormData({ ...formData, usoDepto: "habitar" })}
               />
-              <FormLabel sx={{ '.MuiFormControlLabel-label': { color: 'text.primary' } }}>Habitar</FormLabel>
+              <FormLabel sx={{ '.MuiFormControlLabel-label': { color: 'text.primary' } }}>Inquilino</FormLabel>
             </div>
           </FormControl>
 
