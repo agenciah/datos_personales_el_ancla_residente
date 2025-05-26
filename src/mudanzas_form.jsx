@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { TextField, Button, Container, FormControl, Snackbar, Alert } from "@mui/material";
+import { TextField, Button, Container, FormControl, Snackbar, Alert, FormLabel } from "@mui/material";
 import { jsPDF } from "jspdf";
-import background from "./assets/bahia_nuevo_propietario.jpg";
+import background from "./assets/el_ancla_first.jpg";
 import CropImage from "./componentes/crop/cropimage";
-import page2Background from "./assets/avisos_bahia.jpg"
+import page2Background from "./assets/el_ancla_empty.jpg"
 
 function MudanzasForm() {
   const [formData, setFormData] = useState({
@@ -175,7 +175,7 @@ function MudanzasForm() {
           />
           </FormControl>
           <FormControl component="fieldset" fullWidth margin="normal">
-            <label>Por favor especifique el uso que dará al Departamento:</label>
+            <FormLabel sx={{ color: 'text.primary' }} >Por favor especifique el uso que dará a la propiedad:</FormLabel>
             <div>
               <input
                 type="checkbox"
@@ -184,7 +184,7 @@ function MudanzasForm() {
                 checked={formData.usoDepto === "alojamientos_temporales"}
                 onChange={() => setFormData({ ...formData, usoDepto: "alojamientos_temporales" })}
               />
-              <label>Alojamientos Temporales</label>
+              <FormLabel >Alojamientos Temporales</FormLabel>
             </div>
             <div>
               <input
@@ -194,11 +194,11 @@ function MudanzasForm() {
                 checked={formData.usoDepto === "habitar"}
                 onChange={() => setFormData({ ...formData, usoDepto: "habitar" })}
               />
-              <label>Habitar</label>
+              <FormLabel sx={{ '.MuiFormControlLabel-label': { color: 'text.primary' } }}>Habitar</FormLabel>
             </div>
           </FormControl>
 
-        <input type="file" accept="image/*" onChange={handleImageUpload}/>
+        <input type="file"  accept="image/*" onChange={handleImageUpload}/>
         {imageSrc && (
           <CropImage
             imageSrc={imageSrc}
@@ -208,7 +208,7 @@ function MudanzasForm() {
         )}
         <Button variant="contained" style={{ marginTop: "20px" }} onClick={generatePDF}>
           Generar PDF
-        </Button>
+        </Button > 
         {/* Snackbar para la confirmación */}
         <Snackbar open={snackbarOpen} autoHideDuration={3000} onClose={handleSnackbarClose}>
           <Alert onClose={handleSnackbarClose} severity={snackbarSeverity}>

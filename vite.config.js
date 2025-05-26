@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/bahia_nuevo_propietario"
+  base: "/el_ancla_nuevo_residente"
 })

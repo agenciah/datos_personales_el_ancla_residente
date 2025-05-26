@@ -39,7 +39,7 @@ function App() {
             mb: 2 // Espacio entre los logos y el título
           }}
         >
-          Formulario para nuevos propietarios, Condominio Bahía.
+          Formulario para nuevos propietarios, Condominio El Ancla.
         </Typography>
         <Typography sx={{ color: '#262161', mt: 2 }}>
           Por favor llena los campos y si cuentas con mascotas, agrega una imagen de tu/s mascota/s. Descarga el pdf con el botón al final de la página y compártela al administrador del condominio.
